@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 30% 97%;
+    --foreground: 20 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 25% 12%;
+
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 30 100% 60%;
+
+    --secondary: 30 50% 94%;
+    --secondary-foreground: 24 80% 35%;
+
+    --muted: 30 15% 92%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 24 100% 95%;
+    --accent-foreground: 24 100% 32%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 24 100% 50%;
+
+    --radius: 1rem;
+
+    --success: 152 69% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(24 100% 50%), hsl(30 100% 60%));
+    --gradient-header: linear-gradient(135deg, hsl(24 100% 46%), hsl(18 100% 42%));
+    --shadow-card: 0 4px 24px -4px hsl(24 100% 50% / 0.08);
+    --shadow-elevated: 0 8px 32px -8px hsl(24 100% 50% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 20 18% 7%;
+    --foreground: 30 20% 92%;
+
+    --card: 20 15% 11%;
+    --card-foreground: 30 20% 92%;
+
+    --popover: 20 15% 11%;
+    --popover-foreground: 30 20% 92%;
+
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 30 100% 60%;
+
+    --secondary: 20 15% 16%;
+    --secondary-foreground: 30 20% 90%;
+
+    --muted: 20 12% 16%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 24 60% 18%;
+    --accent-foreground: 24 100% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 12% 18%;
+    --input: 20 12% 18%;
+    --ring: 24 100% 50%;
+
+    --success: 152 69% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(24 100% 50%), hsl(30 100% 60%));
+    --gradient-header: linear-gradient(135deg, hsl(24 100% 40%), hsl(18 90% 35%));
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+
+    --sidebar-background: 20 15% 8%;
+    --sidebar-foreground: 30 20% 92%;
+    --sidebar-primary: 24 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 20 12% 18%;
+    --sidebar-accent-foreground: 30 20% 92%;
+    --sidebar-border: 20 12% 20%;
+    --sidebar-ring: 24 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-elevated {
+    @apply bg-card/90 backdrop-blur-xl border border-border/50;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-header {
+    background: var(--gradient-header);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+}
